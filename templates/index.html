@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>موقع رفع الملفات</title>
+    <style>
+        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; text-align: center; margin-top: 50px; background-color: #eef2f3; }
+        .box { background: white; padding: 30px; border-radius: 15px; display: inline-block; box-shadow: 0 4px 15px rgba(0,0,0,0.1); width: 300px; }
+        h2 { color: #333; }
+        input[type="file"] { margin: 20px 0; display: block; width: 100%; }
+        button { background: #0088cc; color: white; border: none; padding: 12px 25px; cursor: pointer; border-radius: 8px; font-size: 16px; transition: background 0.3s; }
+        button:hover { background: #006699; }
+    </style>
+</head>
+<body>
+    <div class="box">
+        <h2>ارفع ملفك الآن</h2>
+        <p>سيتم إرسال الملف فوراً إلى تليجرام</p>
+        <form action="/upload" method="post" enctype="multipart/form-data">
+            <input type="file" name="file" required>
+            <button type="submit">إرسال للمدير</button>
+        </form>
+    </div>
+</body>
+</html>
