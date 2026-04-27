@@ -3,24 +3,93 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>موقع رفع الملفات</title>
+    <title>KING OMAR UPLOAD</title>
     <style>
-        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; text-align: center; margin-top: 50px; background-color: #eef2f3; }
-        .box { background: white; padding: 30px; border-radius: 15px; display: inline-block; box-shadow: 0 4px 15px rgba(0,0,0,0.1); width: 300px; }
-        h2 { color: #333; }
-        input[type="file"] { margin: 20px 0; display: block; width: 100%; }
-        button { background: #0088cc; color: white; border: none; padding: 12px 25px; cursor: pointer; border-radius: 8px; font-size: 16px; transition: background 0.3s; }
-        button:hover { background: #006699; }
+        body { 
+            font-family: 'Segoe UI', Tahoma, sans-serif; 
+            background-color: #0b0e14; 
+            color: white; 
+            display: flex; 
+            align-items: center; 
+            justify-content: center; 
+            height: 100vh; 
+            margin: 0; 
+        }
+        .card { 
+            background: #1c222d; 
+            padding: 40px; 
+            border-radius: 20px; 
+            box-shadow: 0 10px 40px rgba(0,255,136,0.2); 
+            width: 380px; 
+            text-align: center; 
+            border: 1px solid #333;
+            border-top: 5px solid #00ff88;
+        }
+        h2 { 
+            color: #00ff88; 
+            margin-bottom: 10px; 
+            text-transform: uppercase; 
+            letter-spacing: 3px;
+        }
+        p { color: #888; font-size: 14px; margin-bottom: 30px; }
+        .upload-box { 
+            border: 2px dashed #444; 
+            padding: 30px; 
+            border-radius: 15px; 
+            margin-bottom: 25px; 
+            cursor: pointer; 
+            transition: 0.3s ease; 
+        }
+        .upload-box:hover { 
+            border-color: #00ff88; 
+            background: rgba(0, 255, 136, 0.05); 
+        }
+        input[type="file"] { display: none; }
+        label { cursor: pointer; color: #00ff88; font-weight: bold; font-size: 16px; }
+        .file-info { margin-top: 10px; color: #fff; font-size: 12px; }
+        button { 
+            background: #00ff88; 
+            color: #0b0e14; 
+            border: none; 
+            padding: 15px; 
+            border-radius: 12px; 
+            font-weight: bold; 
+            width: 100%; 
+            cursor: pointer; 
+            font-size: 18px; 
+            transition: 0.3s;
+            box-shadow: 0 4px 15px rgba(0, 255, 136, 0.3);
+        }
+        button:hover { 
+            background: #00cc6e; 
+            transform: translateY(-3px);
+            box-shadow: 0 6px 20px rgba(0, 255, 136, 0.4);
+        }
     </style>
 </head>
 <body>
-    <div class="box">
-        <h2>ارفع ملفك الآن</h2>
-        <p>سيتم إرسال الملف فوراً إلى تليجرام</p>
+    <div class="card">
+        <h2>KING OMAR</h2>
+        <p>مركز رفع الملفات السريع</p>
         <form action="/upload" method="post" enctype="multipart/form-data">
-            <input type="file" name="file" required>
-            <button type="submit">إرسال للمدير</button>
+            <div class="upload-box" onclick="document.getElementById('file').click()">
+                <label for="file">📁 اختار الملف</label>
+                <div class="file-info" id="file-name">لم يتم اختيار ملف بعد</div>
+                <input type="file" name="file" id="file" onchange="updateLabel()" required>
+            </div>
+            <button type="submit">إرسال إلى تليجرام 🚀</button>
         </form>
     </div>
+
+    <script>
+        function updateLabel() {
+            const input = document.getElementById('file');
+            const display = document.getElementById('file-name');
+            if (input.files.length > 0) {
+                display.innerText = "جاهز للإرسال: " + input.files[0].name;
+                display.style.color = "#00ff88";
+            }
+        }
+    </script>
 </body>
 </html>
